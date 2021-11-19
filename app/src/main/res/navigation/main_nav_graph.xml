@@ -11,9 +11,33 @@
             android:name="com.example.mytodoapp.view.TodoListFragment"
             android:label="All Todos"
             tools:layout="@layout/fragment_todo_list">
-<!--            <action-->
-<!--                android:id="@+id/goToRegisterFragment"-->
-<!--                app:destination="@id/registerFragment" />-->
+            <action
+                android:id="@+id/goToTodoDetailsFragment"
+                app:destination="@id/todoDetailsFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/todoDetailsFragment"
+            android:name="com.example.mytodoapp.view.TodoDetailsFragment"
+            android:label="Todo Details"
+            tools:layout="@layout/fragment_todo_details">
+                <argument
+                    android:name="todo"
+                    app:argType="com.example.mytodoapp.models.Todo" />
+                <action
+                        android:id="@+id/goToEditTodoFragment"
+                        app:destination="@id/editTodoFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/editTodoFragment"
+            android:name="com.example.mytodoapp.view.EditTodoFragment"
+            android:label="Edit: {todo.title}"
+            tools:layout="@layout/fragment_edit_todo">
+                <argument
+                    android:name="todo"
+                    app:argType="com.example.mytodoapp.models.Todo" />
+                <!--            <action-->
+                <!--                android:id="@+id/goToRegisterFragment"-->
+                <!--                app:destination="@id/registerFragment" />-->
         </fragment>
         <fragment
             android:id="@+id/profileFragment"

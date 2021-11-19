@@ -94,4 +94,10 @@ dependencies {
     implementation "androidx.activity:activity-ktx:$activity_version"
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+
+    // Datastore dependencies
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
+
+    // Datetime parsing library
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.1")
 }
