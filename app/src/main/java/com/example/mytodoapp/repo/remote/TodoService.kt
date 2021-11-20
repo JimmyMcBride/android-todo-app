@@ -1,15 +1,16 @@
 package com.example.mytodoapp.repo.remote
 
-import com.example.mytodoapp.models.LoginBody
+import com.example.mytodoapp.models.AddTodoBody
 import com.example.mytodoapp.models.Todo
+import com.example.mytodoapp.models.UpdateTodoBody
 import retrofit2.http.*
 
 interface TodoService {
     @POST("todos")
-    suspend fun addTodo(@Body() body: LoginBody, @HeaderMap headers: Map<String, String>): Todo
+    suspend fun addTodo(@Body() body: AddTodoBody, @HeaderMap headers: Map<String, String>): Todo
 
     @PUT("todos/{id}")
-    suspend fun updateTodo(@Path("id") id: String, @Body() body: LoginBody, @HeaderMap headers: Map<String, String>): Todo
+    suspend fun updateTodo(@Path("id") id: String, @Body() body: UpdateTodoBody, @HeaderMap headers: Map<String, String>): Todo
 
     @GET("todos")
     suspend fun getTodos(@HeaderMap headers: Map<String, String>): List<Todo>

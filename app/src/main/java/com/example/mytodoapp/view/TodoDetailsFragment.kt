@@ -55,7 +55,7 @@ class TodoDetailsFragment : Fragment() {
         tvTodoUpdatedAt.text = args.todo.updatedAt.convertToDateTimeStamp()
 
         btnEditTodo.setOnClickListener {
-            findNavController().navigate(TodoDetailsFragmentDirections.goToEditTodoFragment(args.todo))
+            findNavController().navigate(TodoDetailsFragmentDirections.goToEditTodoFragment(args.todo.title, args.todo))
         }
     }
 }
