@@ -2,17 +2,12 @@ package com.example.mytodoapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.mytodoapp.R
 import com.example.mytodoapp.databinding.ActivityMainBinding
-import androidx.activity.OnBackPressedCallback
-
-
-
 
 class MainActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
@@ -32,6 +27,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
+    }
+
+    override fun onBackPressed() {
+        val navHost = supportFragmentManager.findFragmentById(R.id.main_nav_host_fragment)
+        navHost?.let { navFragment ->
+            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
+                if (fragment !is TodoListFragment) {
+                    navController.navigateUp()
+                }
+            }
+        }
     }
 
 }

@@ -14,6 +14,16 @@
             <action
                 android:id="@+id/goToTodoDetailsFragment"
                 app:destination="@id/todoDetailsFragment" />
+                <action
+                    android:id="@+id/goToNewTodoFragment"
+                    app:destination="@id/newTodoFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/newTodoFragment"
+            android:name="com.example.mytodoapp.view.ComposeTodoFragment"
+            android:label="New Todo"
+            tools:layout="@layout/fragment_compose_todo">
+
         </fragment>
         <fragment
             android:id="@+id/todoDetailsFragment"
@@ -38,18 +48,16 @@
                 <argument
                     android:name="todo"
                     app:argType="com.example.mytodoapp.models.Todo" />
-                <!--            <action-->
-                <!--                android:id="@+id/goToRegisterFragment"-->
-                <!--                app:destination="@id/registerFragment" />-->
+                <action
+                    android:id="@+id/goToTodoListFragment"
+                    app:destination="@id/todoListFragment" />
         </fragment>
         <fragment
             android:id="@+id/profileFragment"
             android:name="com.example.mytodoapp.view.ProfileFragment"
             android:label="Profile"
             tools:layout="@layout/fragment_profile">
-<!--            <action-->
-<!--                android:id="@+id/goToFragment"-->
-<!--                app:destination="@id/loginFragment" />-->
+
         </fragment>
 
 

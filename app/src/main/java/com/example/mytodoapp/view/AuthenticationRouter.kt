@@ -35,6 +35,5 @@ class AuthenticationRouter : AppCompatActivity() {
 
         }
 
-
     }
 }

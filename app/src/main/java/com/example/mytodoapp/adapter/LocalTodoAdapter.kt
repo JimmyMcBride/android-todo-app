@@ -7,30 +7,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mytodoapp.R
 import com.example.mytodoapp.databinding.TodoCardBinding
 import com.example.mytodoapp.extensions.layoutInflater
-import com.example.mytodoapp.models.Todo
+import com.example.mytodoapp.repo.local.room.model.LocalTodo
 
-class TodoAdapter(
-    private val todos: List<Todo>,
-    private val todoSelected: (Todo) -> Unit
-) : RecyclerView.Adapter<TodoAdapter.TodoViewHolder>() {
+class LocalTodoAdapter(
+    private val todos: List<LocalTodo>,
+    private val todoSelected: (LocalTodo) -> Unit
+) : RecyclerView.Adapter<LocalTodoAdapter.LocalTodoViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup, viewType: Int
-    ) = TodoViewHolder.getInstance(parent).apply {
+    ) = LocalTodoViewHolder.getInstance(parent).apply {
         itemView.setOnClickListener { todoSelected(todos[adapterPosition]) }
     }
 
-    override fun onBindViewHolder(holder: TodoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: LocalTodoViewHolder, position: Int) {
         holder.loadRecipes(todos[position])
     }
 
     override fun getItemCount() = todos.size
 
-    class TodoViewHolder(
+    class LocalTodoViewHolder(
         private val binding: TodoCardBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun loadRecipes(todo: Todo) = with(binding) {
+        fun loadRecipes(todo: LocalTodo) = with(binding) {
             tvTodoTitle.text = todo.title
             if (todo.description.isNullOrBlank()) {
                 tvTodoDescription.setTypeface(null, Typeface.ITALIC)
@@ -47,7 +47,7 @@ class TodoAdapter(
         companion object {
             fun getInstance(parent: ViewGroup) = TodoCardBinding.inflate(
                 parent.layoutInflater, parent, false
-            ).run { TodoViewHolder(this) }
+            ).run { LocalTodoViewHolder(this) }
         }
     }
 }

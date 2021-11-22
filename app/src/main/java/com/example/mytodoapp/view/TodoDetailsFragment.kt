@@ -12,10 +12,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mytodoapp.databinding.FragmentTodoDetailsBinding
 import com.example.mytodoapp.extensions.convertToDateTimeStamp
-import com.example.mytodoapp.extensions.logMe
-import kotlinx.datetime.LocalDate
-import kotlinx.datetime.toLocalDateTime
-import javax.xml.datatype.DatatypeFactory
 
 class TodoDetailsFragment : Fragment() {
     private var _binding: FragmentTodoDetailsBinding? = null

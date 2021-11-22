@@ -4,55 +4,70 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray_100"
     tools:context=".view.TodoDetailsFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_margin="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:padding="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv_todo_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="24sp"
         android:paddingVertical="16dp"
+        android:textSize="24sp"
+        android:textStyle="bold"
         tools:text="Todo Title" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_todo_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingVertical="16dp"
-        tools:text="Todo description..." />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_todo_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="16dp"
+                tools:text="Todo description..." />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_todo_completed"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingVertical="16dp"
-        tools:text="Todo Completed: true/false" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_todo_completed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="16dp"
+                tools:text="Todo Completed: true/false" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_todo_date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingVertical="16dp"
-        tools:text="Created At: ...date" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_todo_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="16dp"
+                tools:text="Created At: ...date" />
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/tv_todo_updated_at"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingVertical="16dp"
-        tools:text="Last Updated At: ...date" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tv_todo_updated_at"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingVertical="16dp"
+                tools:text="Last Updated At: ...date" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_edit_todo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Edit Todo" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_edit_todo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="Edit Todo" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
 
 
 </LinearLayout>
