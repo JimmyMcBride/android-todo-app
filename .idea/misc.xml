@@ -6,16 +6,18 @@
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.228125" />
         <entry key="app/src/main/res/layout/activity_auth.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/filter_sort_sheet.xml" value="0.1140625" />
+        <entry key="app/src/main/res/layout/filter_sort_sheet.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_compose_todo.xml" value="0.17" />
         <entry key="app/src/main/res/layout/fragment_edit_todo.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.165" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.18206521739130435" />
         <entry key="app/src/main/res/layout/fragment_register.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_todo_details.xml" value="0.21197916666666666" />
-        <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_todo_list.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/sort_options.xml" value="0.15" />
         <entry key="app/src/main/res/layout/todo_card.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/menu/sync_todos.xml" value="0.18958333333333333" />
       </map>
     </option>
   </component>

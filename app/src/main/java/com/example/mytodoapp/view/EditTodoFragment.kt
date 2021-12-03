@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.mytodoapp.databinding.FragmentEditTodoBinding
 import com.example.mytodoapp.extensions.logMe
 import com.example.mytodoapp.models.UpdateTodoBody
+import com.example.mytodoapp.repo.local.room.LocalTodoRepo
+import com.example.mytodoapp.viewmodel.LocalTodoViewModel
 import com.example.mytodoapp.viewmodel.TodoViewModel
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
@@ -23,6 +26,10 @@ class EditTodoFragment : Fragment() {
 
     private val args by navArgs<EditTodoFragmentArgs>()
     private val token by lazy { activity?.intent?.getStringExtra("token")!! }
+
+    private val localTodoViewModel: LocalTodoViewModel by viewModels {
+        LocalTodoViewModel.Factory(LocalTodoRepo(activity?.application!!))
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -46,16 +53,15 @@ class EditTodoFragment : Fragment() {
         smCompleted.isChecked = args.todo.completed
         btnEditTodo.setOnClickListener {
             lifecycleScope.launch {
-                val todo = args.todo.id?.let {
-                    TodoViewModel(token).editTodo(
-                        it,
+                val todo = TodoViewModel(token).editTodo(
+                        args.todo.id,
                         UpdateTodoBody(
                             tiTodoTitle.text.toString(),
                             tiTodoDescription.text.toString(),
                             smCompleted.isChecked
                         )
                     )
-                }
+                localTodoViewModel.addTodo(todo)
                 Snackbar.make(binding.root, "Todo was successfully edited.", Snackbar.LENGTH_SHORT)
                     .setAction("Close") {
                         // Responds to click on the action
@@ -67,11 +73,10 @@ class EditTodoFragment : Fragment() {
         }
         btnDeleteTodo.setOnClickListener {
             lifecycleScope.launch {
-                args.todo.id?.let {
                     TodoViewModel(token).deleteTodo(
-                        it
+                        args.todo.id
                     )
-                }
+                localTodoViewModel.deleteTodo(args.todo)
                 Snackbar.make(binding.root, "Todo was successfully deleted.", Snackbar.LENGTH_SHORT)
                     .setAction("Close") {
                         // Responds to click on the action

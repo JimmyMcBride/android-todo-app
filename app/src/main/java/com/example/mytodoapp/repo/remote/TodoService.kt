@@ -20,7 +20,4 @@ interface TodoService {
     @DELETE("todos/{id}")
     suspend fun deleteTodo(@Path("id") id: Int, @HeaderMap headers: Map<String, String>): Response<DeleteMessage>
 
-//    @GET("todos/{id}")
-//    suspend fun getTodoByID(@Path("id") id: Int, @HeaderMap headers: Map<String, String>): Todo
-
 }
